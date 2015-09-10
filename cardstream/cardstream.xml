@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5" type="plugin" group="vmpayment" method="upgrade">
+    <name>Cardstream</name>
+    <creationDate>June 30th 2015</creationDate>
+    <author>Cardstream</author>
+    <authorUrl>http://www.cardstream.com/</authorUrl>
+    <copyright>Copyright (C) 2015 Cardstream. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <version>1.0</version>
+    <description>Cardstream Hosted Payment Plugin</description>
+
+    <files>
+        <filename plugin="cardstream">cardstream.php</filename>
+        <folder>language</folder>
+    </files>
+
+    <vmconfig>
+        <fields name="params">
+            <fieldset name="payment"  addfieldpath="/administrator/components/com_virtuemart/fields">
+            	<field name="merchant_id" type="text" label="VMPAYMENT_CARDSTREAM_MERCHANT_ID"
+                       description="VMPAYMENT_CARDSTREAM_MERCHANT_ID_TIP"/>
+                <field name="signature_key" type="text" label="VMPAYMENT_CARDSTREAM_SIGNATURE_KEY"
+                       description="VMPAYMENT_CARDSTREAM_SIGNATURE_KEY_TIP"/> 
+
+                <field name="payment_currency" type="vmacceptedcurrency" default="" label="VMPAYMENT_CARDSTREAM_CURRENCY"
+                       description="VMPAYMENT_CARDSTREAM_CURRENCY_TIP"/>
+                <field name="status_pending" type="vmorderstate" scope="com_virtuemart" default="U"
+                       label="VMPAYMENT_CARDSTREAM_STATUS_PENDING" description="VMPAYMENT_CARDSTREAM_STATUS_PENDING_TIP"/>
+                       
+                <field name="status_success" type="vmorderstate" scope="com_virtuemart" default="C"
+                       label="VMPAYMENT_CARDSTREAM_STATUS_SUCCESS" description="VMPAYMENT_CARDSTREAM_STATUS_SUCCESS_TIP"/>                       
+                       
+             </fieldset>
+            <fieldset name="restrictions" >
+                <field name="countries" multiple="true" type="vmcountries" scope="com_virtuemart" default=""
+                       label="VMPAYMENT_CARDSTREAM_COUNTRIES" description="VMPAYMENT_CARDSTREAM_COUNTRIES_TIP"/>
+            </fieldset>
+        </fields>
+    </vmconfig>
+    <updateservers>
+        <!-- Note: No spaces or linebreaks allowed between the server tags -->
+        <server type="extension" name="VirtueMart plg_vmpayment_standard Update Site"><![CDATA[http://virtuemart.net/releases/vm3/plg_vmpayment_CARDSTREAM_update.xml]]></server>
+    </updateservers>
+
+</extension>
